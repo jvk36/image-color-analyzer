@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .color-box {
+            width: 50px;
+            height: 50px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center">Analysis Results</h1>
+    <div class="text-center mt-4">
+        <img src="{{ url_for('static', filename='uploads/' + image_url.split('/')[-1]) }}" class="img-fluid" alt="Uploaded Image">
+    </div>
+    <h2 class="mt-5">Top 10 Colors</h2>
+    <table class="table table-bordered mt-3">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Color</th>
+                <th scope="col">Hex Code</th>
+                <th scope="col">Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for color in colors %}
+            <tr>
+                <td><div class="color-box" style="background-color: {{ color.color }};"></div></td>
+                <td>{{ color.color }}</td>
+                <td>{{ color.percentage }}%</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="text-center">
+        <a href="{{ url_for('index') }}" class="btn btn-secondary mt-3">Upload Another Image</a>
+    </div>
+</div>
+</body>
+</html>

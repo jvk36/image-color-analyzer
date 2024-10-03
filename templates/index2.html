@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Color Analyzer</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+<div class="container mt-5">
+    <h1 class="text-center">Image Color Analyzer</h1>
+    <p class="text-center">Upload an image to see its top colors.</p>
+    <form method="post" enctype="multipart/form-data" class="mt-4">
+        <div class="form-group">
+            <label for="image">Choose an Image:</label>
+            <input type="file" name="image" class="form-control-file" accept="image/*" required>
+        </div>
+        <div class="form-group">
+            <label for="color_count">Number of Colors to Display:</label>
+            <input type="number" name="color_count" class="form-control" value="10" min="1" max="20">
+        </div>
+        <div class="form-group">
+            <label for="delta">Color Similarity Delta (1-255):</label>
+            <input type="number" name="delta" class="form-control" value="30" min="1" max="255">
+        </div>
+        <button type="submit" class="btn btn-primary">Analyze Image</button>
+    </form>
+</div>
+</body>
+</html>

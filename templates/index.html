@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Color Analyzer</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Upload an Image to Analyze Colors</h2>
+        <form id="upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="imageFile">Choose Image</label>
+                <input type="file" class="form-control-file" id="imageFile" name="imageFile" accept="image/*" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload and Analyze</button>
+        </form>
+
+        <div id="image-display" class="mt-4">
+            <!-- Image will be displayed here -->
+        </div>
+
+        <div id="color-info" class="mt-4">
+            <!-- Color information will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("upload-form").onsubmit = function(event) {
+            const fileInput = document.getElementById("imageFile");
+            if (fileInput.files.length === 0) {
+                event.preventDefault();
+                alert("Please select an image file first.");
+            }
+        };
+    </script>
+</body>
+</html>
